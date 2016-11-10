@@ -1,0 +1,11 @@
+
+Threads ex1
+------------
+
+Use Netmiko, threads, and a queue to retrieve the running config from all 
+of the devices in the database.
+
+Save the running configs to a ~/CFGS directory.
+
+Note, 'show config' is the command you will need to run for Juniper.
+
