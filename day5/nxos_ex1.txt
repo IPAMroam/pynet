@@ -1,5 +1,5 @@
 
-NXOS-NAPALM ex1
+NXOS-ansible ex1
 ----------------
 
 1. Pair up with a partner.
