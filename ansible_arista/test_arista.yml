@@ -1,0 +1,39 @@
+---
+
+- name: Arista Create VLANS
+  hosts: pynet-sw1
+
+  tasks:
+    - eos_vlan: 
+        name: test1
+        vlanid: 931
+        username: "{{ eapi_username }}"
+        password: "{{ eapi_password }}"
+        host: "{{ eapi_hostname }}"
+        port: "{{ eapi_port }}"
+        transport: https
+
+    - name: Set Ethernet3 to access mode
+      eos_switchport: 
+        name: Ethernet3
+        mode: access
+        access_vlan: 931 
+        username: "{{ eapi_username }}"
+        password: "{{ eapi_password }}"
+        host: "{{ eapi_hostname }}"
+        port: "{{ eapi_port }}"
+        transport: https
+      tags: access 
+
+    - name: Set Ethernet3 to trunk
+      eos_switchport: 
+        name: Ethernet3
+        mode: trunk
+        trunk_native_vlan: 1
+        trunk_allowed_vlans: 931
+        access_vlan: 931 
+        username: "{{ eapi_username }}"
+        password: "{{ eapi_password }}"
+        host: "{{ eapi_hostname }}"
+        transport: https
+      tags: trunk
