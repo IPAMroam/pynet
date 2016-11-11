@@ -38,7 +38,6 @@ def main():
         return 0
     git_changes = [GIT, 'log', '-p', '-1']
     router_changes = subprocess_handler(git_changes)
-    print router_changes
     email_handler(router_changes)
 
 if __name__ == "__main__":
