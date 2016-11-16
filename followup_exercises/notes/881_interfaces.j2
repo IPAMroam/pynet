@@ -1,0 +1,35 @@
+{% macro intf_trunk(native_vlan=1, trunk_allowed_vlans=1) -%}
+ switchport mode trunk
+ switchport trunk native vlan {{ native_vlan }}
+ switchport trunk allowed vlan {{ trunk_allowed_vlans }}
+{%- endmacro %}
+
+{% macro intf_access(vlan=1) -%}
+ switchport mode access
+ switchport access vlan {{ vlan }}
+{%- endmacro %}
+
+interface FastEthernet0
+ no ip address
+ {{ intf_trunk(native_vlan=1, trunk_allowed_vlans="1,100") }}
+!
+interface FastEthernet1
+ no ip address
+ {{ intf_trunk(native_vlan=1, trunk_allowed_vlans="1,100") }}
+!
+interface FastEthernet2
+ no ip address
+ {{ intf_access(vlan=100) }}
+!
+interface FastEthernet3
+ no ip address
+ {{ intf_access(vlan=100) }}
+!
+interface FastEthernet4
+ description *** {{ item.ckt_id }} ***
+ ip address {{ item.ip_addr }} {{ item.netmask }}
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address

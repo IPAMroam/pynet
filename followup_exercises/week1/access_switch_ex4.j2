@@ -3,7 +3,6 @@
  switchport trunk native vlan {{ native_vlan }}
  switchport trunk allowed vlan {{ trunk_allowed_vlans }}
 {%- endmacro %}
-
 {% macro intf_access(vlan=1) -%} 
  switchport mode access
  switchport access vlan {{ vlan }}
