@@ -13,6 +13,7 @@ pynet_sw1 = {
     'ip': '184.105.247.72',
     'username': 'pyclass',
     'password': std_pwd,
+    'global_delay_factor': 2,
 }
 
 pynet_sw2 = {
@@ -20,6 +21,7 @@ pynet_sw2 = {
     'ip': '184.105.247.73',
     'username': 'pyclass',
     'password': std_pwd,
+    'global_delay_factor': 2,
 }
 
 pynet_sw3 = {
@@ -27,6 +29,7 @@ pynet_sw3 = {
     'ip': '184.105.247.74',
     'username': 'pyclass',
     'password': std_pwd,
+    'global_delay_factor': 2,
 }
 
 pynet_sw4 = {
@@ -34,6 +37,7 @@ pynet_sw4 = {
     'ip': '184.105.247.75',
     'username': 'pyclass',
     'password': std_pwd,
+    'global_delay_factor': 2,
 }
 
 device_list = [

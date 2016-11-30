@@ -58,6 +58,7 @@ def main():
             vlan_name_correct = check_vlan_name(output, vlan_name)
             if not vlan_exists or not vlan_name_correct:
                 print "Adding vlan/updating vlan name...",
+                print output
                 output = add_vlan(net_conn, vlan_id, vlan_name)
                 print "Done"
             else:
