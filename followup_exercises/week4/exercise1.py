@@ -54,7 +54,7 @@ Use a for loop to loop over the dictionary printing out the dictionary's keys an
 
 if __name__ == "__main__":
     banner = '-' * 80
-    
+
     #### Exercise 1a #####
     print "\nExercise 1a"
     print banner
@@ -88,7 +88,7 @@ if __name__ == "__main__":
         my_user['city'] = 'Denver'
         print my_user.get('city')
     print banner
-    
+
     #### Exercise 1d #####
     print "\nExercise 1d"
     print banner

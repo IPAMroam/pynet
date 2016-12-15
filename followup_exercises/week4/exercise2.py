@@ -63,20 +63,20 @@ if __name__ == "__main__":
     print "\nExercise 2a"
     print "-" * 80
     my_list = ['whatever', 99, True, 'hello', 22, 'some string', 'another']
-    
+
     for entry in my_list:
         print entry
     print "-" * 80
-    
+
     #### Exercise 2b #####
     print "\nExercise 2b"
     print "-" * 80
     my_list.append('whatever')
-    
+
     for i, entry in enumerate(my_list):
         print i, entry
     print "-" * 80
-    
+
     #### Exercise 2c #####
     print "\nExercise 2c"
     print "-" * 80
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     my_list[-1] = 'changed'
     print my_list
     print "-" * 80
-    
+
     #### Exercise 2d #####
     print "\nExercise 2d"
     print "-" * 80
@@ -94,7 +94,7 @@ if __name__ == "__main__":
     print "List length: {}".format(len(my_list))
     print my_list
     print "-" * 80
-    
+
     #### Exercise 2e #####
     print "\nExercise 2e"
     print "-" * 80
@@ -102,19 +102,19 @@ if __name__ == "__main__":
     my_list.extend(new_list)
     print my_list
     print "-" * 80
-    
+
     #### Exercise 2f #####
     print "\nExercise 2f"
     print "-" * 80
     my_list.insert(1, 'whatever')
     print my_list
     print "-" * 80
-    
+
     #### Exercise 2g #####
     print "\nExercise 2g"
     print "-" * 80
     print my_list[:4]
-    
+
     new_list = my_list[-5:]
     print new_list
     print "-" * 80
