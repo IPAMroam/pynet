@@ -1,0 +1,9 @@
+---
+
+interface_descriptions:
+  - {intf: 'interface FastEthernet0', descr: 'description *** intf FastEthernet0 *** (ansible-host_varsx)'}
+  - {intf: 'interface FastEthernet1', descr: 'description *** intf FastEthernet1 *** (ansible-host_varsx)'}
+  - {intf: 'interface FastEthernet2', descr: 'description *** intf FastEthernet2 *** (ansible-host_varsx)'}
+  - {intf: 'interface FastEthernet3', descr: 'description *** intf FastEthernet3 *** (ansible-host_varsx)'}
+  - {intf: 'interface FastEthernet4', descr: "description *** LAN connection (don't change) ***"}
+  - {intf: 'interface Vlan1', descr: 'description *** intf Vlan1 *** (ansible-host_varsx)'}

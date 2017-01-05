@@ -1,0 +1,50 @@
+# Repeat the same process as exercise1 but this time using netmiko-tools. In other words,
+# configure the interface description for a set of interfaces on a single device using
+# netmiko-tools.
+
+
+/* File containing changes */
+$ cat intf_descr.txt 
+interface Fa0
+ description *** intf FastEthernet0 *** (netmiko tools)
+interface Fa1
+ description *** intf FastEthernet1 *** (netmiko tools)
+interface Fa2
+ description *** intf FastEthernet2 *** (netmiko tools)
+interface Fa3
+ description *** intf FastEthernet3 *** (netmiko tools)
+interface Fa4
+ description *** LAN connection (don't change) ***
+interface Vlan1
+ description *** intf Vlan1 *** (netmiko tools)
+
+
+/* The netmiko-cfg command executing the changes */
+$ netmiko-cfg --infile intf_descr.txt pynet_rtr1
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+pynet-rtr1(config)#interface Fa0
+pynet-rtr1(config-if)# description *** intf FastEthernet0 *** (netmiko tools)
+pynet-rtr1(config-if)#interface Fa1
+pynet-rtr1(config-if)# description *** intf FastEthernet1 *** (netmiko tools)
+pynet-rtr1(config-if)#interface Fa2
+pynet-rtr1(config-if)# description *** intf FastEthernet2 *** (netmiko tools)
+pynet-rtr1(config-if)#interface Fa3
+pynet-rtr1(config-if)# description *** intf FastEthernet3 *** (netmiko tools)
+pynet-rtr1(config-if)#interface Fa4
+pynet-rtr1(config-if)# description *** LAN connection (don't change) ***
+pynet-rtr1(config-if)#interface Vlan1
+pynet-rtr1(config-if)# description *** intf Vlan1 *** (netmiko tools)
+pynet-rtr1(config-if)#end
+pynet-rtr1#
+
+
+/* Verifying the changes happened */
+$ netmiko-grep 'descr' pynet_rtr1
+ description *** intf FastEthernet0 *** (netmiko tools)
+ description *** intf FastEthernet1 *** (netmiko tools)
+ description *** intf FastEthernet2 *** (netmiko tools)
+ description *** intf FastEthernet3 *** (netmiko tools)
+ description *** LAN connection (don't change) ***
+ description *** intf Vlan1 *** (netmiko tools)
+
