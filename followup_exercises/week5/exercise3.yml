@@ -1,0 +1,27 @@
+---
+# Expand upon your Ansible exercise (exercise2), but this time configure multiple switches/routers
+# (at least 2). The network devices should have either different interface names or different
+# descriptions (or both).
+#
+# Hint, you might want to use Ansible host_vars to accomplish this.
+
+- name: Configure interface descriptions using Ansible
+  gather_facts: no
+  hosts: cisco
+
+  vars:
+    creds:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+  tasks:
+    - name: Configure interface descriptions
+      ios_config: 
+        provider: "{{ creds }}"
+        parents: "{{ item.intf }}"
+        lines: 
+          - "{{ item.descr }}"
+        replace: block
+        match: exact
+      with_items: "{{ interface_descriptions }}"
