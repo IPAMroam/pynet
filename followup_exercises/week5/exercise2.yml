@@ -1,0 +1,29 @@
+---
+# Repeat exercise1 except use the Ansible 2.1 modules to configure the interface descriptions.
+
+- name: Configure interface descriptions using Ansible
+  gather_facts: no
+  hosts: pynet-rtr1
+
+  vars:
+    creds:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+  tasks:
+    - name: Configure interface descriptions
+      ios_config: 
+        provider: "{{ creds }}"
+        parents: "{{ item.intf }}"
+        lines: 
+          - "{{ item.descr }}"
+        replace: block
+        match: exact
+      with_items:
+        - {intf: 'interface FastEthernet0', descr: 'description *** intf FastEthernet0 *** (ansible)'}
+        - {intf: 'interface FastEthernet1', descr: 'description *** intf FastEthernet1 *** (ansible)'}
+        - {intf: 'interface FastEthernet2', descr: 'description *** intf FastEthernet2 *** (ansible)'}
+        - {intf: 'interface FastEthernet3', descr: 'description *** intf FastEthernet3 *** (ansible)'}
+        - {intf: 'interface FastEthernet4', descr: "description *** LAN connection (don't change) ***"}
+        - {intf: 'interface Vlan1', descr: 'description *** intf Vlan1 *** (ansible)'}
