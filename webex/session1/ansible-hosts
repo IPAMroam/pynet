@@ -1,0 +1,25 @@
+[local]
+localhost ansible_connection=local
+
+[cisco]
+pynet-rtr1 ansible_host=10.10.10.70
+pynet-rtr2 ansible_host=10.10.10.71 
+
+[cisco:vars]
+username=pyclass
+password=invalid
+ansible_python_interpreter=/home/kbyers/VENV/ansible/bin/python
+ansible_connection=local
+
+[server]
+pylab10b.twb-tech.com
+
+[nxos]
+nxos1 ansible_host=10.10.10.20
+nxos2 ansible_host=10.10.10.185
+
+[nxos:vars]
+username=pyclass
+password=invalid
+ansible_python_interpreter=/home/kbyers/VENV/ansible/bin/python
+ansible_connection=local

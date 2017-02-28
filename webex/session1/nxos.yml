@@ -1,0 +1,31 @@
+---
+- name: Test NXOS
+  hosts: nxos
+  vars:
+    creds_cli:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        transport: cli
+    creds_nxapi:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        transport: nxapi
+        use_ssl: true
+        validate_certs: false
+        port: 8443
+  tasks:
+    - nxos_command:
+        provider: "{{ creds_nxapi }}"
+        commands: show vlan
+      register: vlan_out
+
+    - debug:
+        msg: "{{ vlan_out }}"
+
+    - nxos_vlan:
+        provider: "{{ creds_cli }}"
+        vlan_id: 50
+        name: blue
+        admin_state: up

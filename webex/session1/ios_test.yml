@@ -1,0 +1,19 @@
+---
+- name: Experimentation with IOS
+  hosts: cisco
+  tasks:
+    - ios_facts:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+    - debug:
+        msg: "{{ inventory_hostname }}" 
+      tags: debug_only
+
+    - ios_config:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        lines:
+          - hostname "{{ inventory_hostname }}"
